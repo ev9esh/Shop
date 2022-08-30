@@ -1,21 +1,11 @@
 from flask import Flask, render_template, request, redirect
 from datetime import datetime
 from flask_sqlalchemy import SQLAlchemy
-# from sqlalchemy import create_engine, MetaData, Table, Integer, String, Column, DateTime, ForeignKey, Numeric
-# from sqlalchemy.ext.declarative import declarative_base
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///reviews.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 reviews_db = SQLAlchemy(app)
-# reviews_db = declarative_base()
-
-
-# class Reviews(reviews_db):
-#     __tablename__ = 'reviews'
-#     id = Column(Integer, primary_key=True)
-#     text = Column(String, nullable=False)
-#     date = Column(DateTime, default=datetime.utcnow)
 
 
 class Reviews(reviews_db.Model):
@@ -24,7 +14,7 @@ class Reviews(reviews_db.Model):
     date = reviews_db.Column(reviews_db.DateTime, default=datetime.utcnow)
 
     def __repr__(self):
-        return '<Reviews %r' % self.id
+        return '<Reviews %r>' % self.id
 
 
 @app.route('/')
