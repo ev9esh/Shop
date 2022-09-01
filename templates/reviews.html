@@ -1,10 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
+{% extends 'base.html' %}
+
+{% block title %}
     <title>Все отзывы</title>
-</head>
-<body>
+{% endblock %}
+
+{% block body %}
     <section class="container text-center">
     <div class="list-group w-auto">
         <h3>Все отзывы на сайте</h3>
@@ -19,9 +19,6 @@
                 </div>
             </a>
         {% endfor %}
-
     </div>
     </section>
-
-</body>
-</html>
+{% endblock %}
