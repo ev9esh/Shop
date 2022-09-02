@@ -25,22 +25,17 @@
       </a>
 
       <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
-        <a class="me-3 py-2 text-dark text-decoration-none" href="#">Features</a>
-        <a class="me-3 py-2 text-dark text-decoration-none" href="#">Enterprise</a>
-        <a class="me-3 py-2 text-dark text-decoration-none" href="#">Support</a>
-        <a class="py-2 text-dark text-decoration-none" href="#">Pricing</a>
+        <a class="me-3 py-2 text-dark text-decoration-none" href="/">Главная</a>
+        <a class="me-3 py-2 text-dark text-decoration-none" href="/about">Про магазин</a>
+        <a class="me-3 py-2 text-dark text-decoration-none" href="/leave_feedback">Оставить отзыв</a>
+        <a class="me-3 py-2 text-dark text-decoration-none" href="/reviews">Все отзывы</a>
+        <a class="btn btn-outline-primary" href="/create">Добавить товар</a>
       </nav>
     </div>
 
-    <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
-      <h1 class="display-4 fw-normal">Pricing</h1>
-      <p class="fs-5 text-muted">Quickly build an effective pricing table for your potential customers with this Bootstrap example. It’s built with default Bootstrap components and utilities with little customization.</p>
-    </div>
-  </header>
+    {% block body %}{% endblock %}
 
-  {% block body %}{% endblock %}
-
-  <footer class="pt-4 my-md-5 pt-md-5 border-top">
+    <footer class="pt-4 my-md-5 pt-md-5 border-top">
     <div class="row">
       <div class="col-12 col-md">
         <img class="mb-2" src="/docs/5.2/assets/brand/bootstrap-logo.svg" alt="" width="24" height="19">
@@ -77,11 +72,6 @@
       </div>
     </div>
   </footer>
-</div>
-
-
-
-
-
+  </div>
 </body>
 </html>
