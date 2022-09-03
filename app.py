@@ -4,10 +4,17 @@ from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///reviews.db'
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///shop.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///shop.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-# shop_db = SQLAlchemy(app)
+shop_db = SQLAlchemy(app)
 reviews_db = SQLAlchemy(app)
+
+
+class Shop(shop_db.Model):
+    id = shop_db.Column(shop_db.Integer, primary_key=True)
+    title = shop_db.Column(shop_db.Text, nullable=False)
+    price = shop_db.Column(shop_db.Integer, nullable=False)
+    isActive = shop_db.Column(shop_db.Text, nullable=False)
 
 
 class Reviews(reviews_db.Model):
