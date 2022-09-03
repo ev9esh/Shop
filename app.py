@@ -14,7 +14,7 @@ class Shop(shop_db.Model):
     id = shop_db.Column(shop_db.Integer, primary_key=True)
     title = shop_db.Column(shop_db.Text, nullable=False)
     price = shop_db.Column(shop_db.Integer, nullable=False)
-    isActive = shop_db.Column(shop_db.Text, nullable=False)
+    isActive = shop_db.Column(shop_db.Boolean, default=True)
 
 
 class Reviews(reviews_db.Model):
@@ -34,6 +34,11 @@ def index():
 @app.route('/about')
 def about():
     return render_template('about.html')
+
+
+@app.route('/create')
+def create():
+    return render_template('create.html')
 
 
 @app.route('/reviews')

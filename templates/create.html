@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>Добавление тавара</title>
+{% endblock %}
+
+{% block body %}
+    <section class="container text-center">
+    <div class="list-group w-auto">
+      <h1>Добавление тавара</h1>
+      <form method="post">
+        <input type="text" name="title" id="title" class="container form-control" placeholder="Товар"><br>
+        <textarea name="intro" id="intro" class="container form-control" placeholder="Цена"></textarea><br>
+        <div class="d-grid gap col-6 mx-auto">
+            <input type="submit" class="btn btn-success" value="Отправить">
+        </div>
+      </form>
+    </div>
+{% endblock %}
