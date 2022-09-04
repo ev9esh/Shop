@@ -31,7 +31,8 @@ class Reviews(reviews_db.Model):
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    items = Shop.query.all()
+    return render_template('index.html', data=items)
 
 
 @app.route('/about')
@@ -57,8 +58,8 @@ def create():
 
 @app.route('/reviews')
 def review():
-    reviews = Reviews.query.order_by(Reviews.date.desc()).all()
-    return render_template('reviews.html', rewiews=reviews)
+    reviews = Reviews.query.order_by(Reviews.date).all()
+    return render_template('reviews.html', all=reviews)
 
 
 @app.route('/leave_feedback', methods=['POST', 'GET'])
