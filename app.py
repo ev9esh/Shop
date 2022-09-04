@@ -16,6 +16,9 @@ class Shop(shop_db.Model):
     price = shop_db.Column(shop_db.Integer, nullable=False)
     isActive = shop_db.Column(shop_db.Boolean, default=True)
 
+    def __repr__(self):
+        return self.title
+
 
 class Reviews(reviews_db.Model):
     id = reviews_db.Column(reviews_db.Integer, primary_key=True)
@@ -36,9 +39,20 @@ def about():
     return render_template('about.html')
 
 
-@app.route('/create')
+@app.route('/create', methods=['POST', 'GET'])
 def create():
-    return render_template('create.html')
+    if request.method == 'POST':
+        title = request.form['title']
+        price = request.form['price']
+        all = Shop(title=title, price=price)
+        try:
+            shop_db.session.add(all)
+            shop_db.session.commit()
+            return redirect('/')
+        except:
+            return 'Ошибка'
+    else:
+        return render_template('create.html')
 
 
 @app.route('/reviews')
