@@ -2,7 +2,16 @@
 
 {% block title %}
     <title>Добавление тавара</title>
+    <style type="text/css">
+        body {
+            background-color: rgba(255, 255, 128, .5);;
+            margin: 0;
+            padding: 0;
+            font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif
+        }
+    </style>
 {% endblock %}
+
 
 {% block body %}
     <section class="container text-center">
@@ -10,10 +19,11 @@
       <h1>Добавление тавара</h1>
       <form method="post">
         <input type="text" name="title" id="title" class="container form-control" placeholder="Товар"><br>
-        <textarea name="intro" id="intro" class="container form-control" placeholder="Цена"></textarea><br>
+        <textarea name="price" id="price" class="container form-control" placeholder="Цена"></textarea><br>
         <div class="d-grid gap col-6 mx-auto">
-            <input type="submit" class="btn btn-success" value="Отправить">
+            <button type="submit" class="btn btn-success" value="Отправить"></button>
         </div>
       </form>
     </div>
+    </section>
 {% endblock %}
